@@ -1,42 +1,50 @@
-mysql> select * from students;
-+---------+------+
-| name    | mark |
-+---------+------+
-| ram     |    9 |
-| geetha  |    8 |
-| krishna |   10 |
-| sridhar |    9 |
-| navi    |    9 |
-| teja    |    7 |
-| bharat  |    7 |
-+---------+------+
-7 rows in set (0.00 sec)
-mysql> select repeat(mark,3) from students;
-+----------------+
-| repeat(mark,3) |
-+----------------+
-| 999            |
-| 888            |
-| 101010         |
-| 999            |
-| 999            |
-| 777            |
-| 777            |
-| 888            |
-+----------------+
-8 rows in set (0.00 sec)
+mysql> select * from person;
++----------+-----------+-----------+------+
+| personId | lastName  | FirstName | Age  |
++----------+-----------+-----------+------+
+|        1 | Hansen    | Ola       |   30 |
+|        2 | Svendson  | Tove      |   23 |
+|        3 | Pettersen | Kari      |   20 |
++----------+-----------+-----------+------+
+3 rows in set (0.00 sec)
+mysql> select * from person where LastName like 'Sv%';
++----------+----------+-----------+------+
+| personId | lastName | FirstName | Age  |
++----------+----------+-----------+------+
+|        2 | Svendson | Tove      |   23 |
++----------+----------+-----------+------+
+1 row in set (0.00 sec)
 
-mysql> select repeat(name,2) from students;
-+----------------+
-| repeat(name,2) |
-+----------------+
-| ramram         |
-| geethageetha   |
-| krishnakrishna |
-| sridharsridhar |
-| navinavi       |
-| tejateja       |
-| bharatbharat   |
-| jackjack       |
-+----------------+
-8 rows in set (0.00 sec)
+mysql> select * from person where LastName like '%n';
++----------+-----------+-----------+------+
+| personId | lastName  | FirstName | Age  |
++----------+-----------+-----------+------+
+|        1 | Hansen    | Ola       |   30 |
+|        2 | Svendson  | Tove      |   23 |
+|        3 | Pettersen | Kari      |   20 |
++----------+-----------+-----------+------+
+3 rows in set (0.00 sec)
+mysql> select * from faculty;
++-------+---------+--------+------+----------+------+------+
+| facno | facname | gender | Dob  | mobileno | Doj  | dept |
++-------+---------+--------+------+----------+------+------+
+|    12 | ddd     | F      |    0 |    92744 |    0 | dbms |
++-------+---------+--------+------+----------+------+------+
+1 row in set (0.00 sec)
+mysql> insert into student values(12,'nagaraju','m',8/5/2003,78422,'tirupati');
+ERROR 1062 (23000): Duplicate entry 'tirupati' for key 'PRIMARY'
+mysql> select * from student;
++-------+----------+--------+------+-------+----------+
+| regno | name     | gender | dob  | mobno | city     |
++-------+----------+--------+------+-------+----------+
+|    12 | nagaraju | m      |    0 | 78422 | tirupati |
++-------+----------+--------+------+-------+----------+
+1 row in set (0.00 sec)
+mysql> select * from faculty;
++-------+---------+--------+------+----------+------+------+
+| facno | facname | gender | Dob  | mobileno | Doj  | dept |
++-------+---------+--------+------+----------+------+------+
+|    12 | ddd     | F      |    0 |    92744 |    0 | dbms |
+|    23 | vamsi   | m      |    0 |    12345 |    0 | cse  |
++-------+---------+--------+------+----------+------+------+
+2 rows in set (0.00 sec)
